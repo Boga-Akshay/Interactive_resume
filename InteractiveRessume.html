@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #121212;
+            color: #E0E0E0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        nav {
+            margin-top: 0.5rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        select {
+            margin-left: 10px;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button {
+            margin-left: 10px;
+            padding: 0.5rem 1rem;
+            background: white;
+            color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        
+        section {
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: background-color 0.3s, color 0.3s;
+    scroll-margin-top: 80px; /* Adjust this value based on your header height */
+}
+
+        body.dark-mode section {
+            background: #1E1E1E;
+        }
+        section h2 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+
+
+        section {
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: background-color 0.3s, color 0.3s;
+    scroll-margin-top: 80px; /* Adjust this value based on your header height */
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+body.dark-mode section {
+    background: #1E1E1E;
+}
+
+
+        section h2::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background-color: #4CAF50;
+            display: block;
+            margin-top: 8px;
+        }
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 1rem 0;
+        }
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .social-icon {
+    color: white;
+    font-size: 2rem; /* Increase the icon size */
+    text-decoration: none;
+    padding: 0.5rem; /* Add padding around the icons */
+    transition: color 0.3s, transform 0.3s; /* Add smooth transition */
+}
+
+.social-icon:hover {
+    color: #4CAF50; /* Matches the theme's accent color */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+
+
+
+
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="greeting">Welcome to My Interactive Resume</h1>
+        <nav>
+            <a onclick="scrollToSection('personal')">Personal Info</a>
+            <a onclick="scrollToSection('education')">Education</a>
+            <a onclick="scrollToSection('skills')">Skills</a>
+            <a onclick="scrollToSection('projects')">Projects</a>
+            <a onclick="scrollToSection('contact')">Contact</a>
+            <select id="language-dropdown"></select>
+            <button id="dark-mode-toggle">Dark Mode</button>
+            <div id="social-links">
+                <a href="https://github.com/Boga-Akshay" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/bogaakshay/" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </nav>
+        
+    </header>
+
+    <section id="personal">
+        <h2>Personal Information</h2>
+        <p><strong>Email:</strong> Akshayboga0000@gmail.com</p>
+        
+         <p id="personal-description"><strong>Hello!</strong> I am a passionate <strong>web developer</strong> with a strong foundation in designing and building interactive, user-friendly websites and applications. With expertise in front-end and back-end technologies, I thrive on crafting seamless user experiences and functional solutions. I have hands-on experience working with modern web development frameworks, responsive design techniques, and optimizing websites for performance. 
+
+            Beyond coding, I enjoy problem-solving and turning innovative ideas into reality through technology. My recent projects span dynamic portfolios, voice-controlled systems, and IoT integrations, showcasing a blend of creativity and technical skills. 
+            
+            When I'm not coding, I love exploring new tech trends, participating in hackathons, and contributing to open-source projects. My goal is to continuously learn, innovate, and make a meaningful impact in the tech world.</p>
+            
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <p><strong>Bachelor's in Computer Science</strong> - Swami Vivekanandha Institute of Technology, 2025</p>
+
+    </section>
+
+    
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Java</li>
+            <li>Basic Python</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Basic React</li>
+            <li>Node.js</li>
+            <li>MySql</li>
+        </ul>
+    </section>
+
+
+
+
+    <section id="projects">
+    <h2>Projects</h2>
+    <p><strong>Interactive Portfolio:</strong> A dynamic portfolio website showcasing my projects with animations and interactivity.</p>
+    
+    <p><strong>Voice Assistant with Object Detection:</strong> Developed a voice-controlled assistant capable of detecting objects in its visible range and providing concise descriptions. Utilized Python libraries such as OpenCV, SpeechRecognition, pyttsx3, and Numpy.</p>
+    <p><strong>RC Car Controlled via Website or Application:</strong> Created a remote-controlled car using Embedded C and HTML, enabling real-time control of direction and speed through a web interface or mobile app.</p>
+    <p><strong>Voice Translator:</strong> Built a voice translator using SpeechRecognition and Google Translate library to convert speech into the required language.</p>
+    <p><strong>Websites:</strong> Designed websites using Flexbox, Grid, and Bootstrap for responsive and modern layouts.<br><br>
+    <strong>Ex:</strong>"Em-powerFit" For Men </br>  M-PowerFit For Pregnancy Women <br>Etc.......</p>
+</section>
+
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p><strong>Email:</strong> Akshayboga0000@gmail.com</p>
+        
+        <p><strong>Location:</strong> Secundrabad, India</p>
+    </section>
+
+    <footer>
+        &copy; 2025 Boga Akshay | Interactive Resume | <a href="#">Back to Top</a>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.getElementById('dark-mode-toggle').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            this.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
+        });
+
+        const translations = {
+            EN: { greeting: 'Welcome to My Interactive Resume', personalDescription: 'Hello! I am a passionate web developer with expertise in creating interactive and user-friendly websites.' },
+            ES: { greeting: 'Bienvenido a Mi Curriculum Interactivo', personalDescription: '¡Hola! Soy un desarrollador web apasionado con experiencia en la creación de sitios web interactivos y fáciles de usar.' },
+            FR: { greeting: 'Bienvenue dans Mon CV Interactif', personalDescription: 'Bonjour! Je suis un développeur web passionné avec une expertise dans la création de sites web interactifs et conviviaux.' },
+            DE: { greeting: 'Willkommen in Meinem Interaktiven Lebenslauf', personalDescription: 'Hallo! Ich bin ein leidenschaftlicher Webentwickler mit Erfahrung in der Erstellung interaktiver und benutzerfreundlicher Websites.' },
+            IT: { greeting: 'Benvenuto nel Mio Curriculum Interattivo', personalDescription: 'Ciao! Sono uno sviluppatore web appassionato con esperienza nella creazione di siti web interattivi e facili da usare.' },
+            CN: { greeting: '欢迎来到我的互动简历', personalDescription: '你好！我是一名热衷于创建互动和用户友好型网站的网页开发者。' },
+            JP: { greeting: '私のインタラクティブな履歴書へようこそ', personalDescription: 'こんにちは！私はインタラクティブで使いやすいウェブサイトを作成する専門知識を持つ情熱的なウェブ開発者です。' },
+            RU: { greeting: 'Добро пожаловать в мое интерактивное резюме', personalDescription: 'Здравствуйте! Я увлеченный веб-разработчик с опытом создания интерактивных и удобных сайтов.' },
+            AR: { greeting: 'مرحبًا بكم في سيرتي الذاتية التفاعلية', personalDescription: 'مرحبًا! أنا مطور ويب شغوف ومتخصص في إنشاء مواقع ويب تفاعلية وسهلة الاستخدام.' },
+            HI: { greeting: 'मेरे इंटरैक्टिव रिज़्यूमे में आपका स्वागत है', personalDescription: 'नमस्ते! मैं एक जुनूनी वेब डेवलपर हूं, जो इंटरैक्टिव और उपयोगकर्ता-अनुकूल वेबसाइट बनाने में माहिर हूं।' },
+        };
+        /*EN: English
+        ES: Spanish (Español)
+        FR: French (Français)
+        DE: German (Deutsch)
+        IT: Italian (Italiano)
+        CN: Chinese (Simplified Mandarin)
+        JP: Japanese
+        RU: Russian (Русский)
+        AR: Arabic (العربية)
+        HI: Hindi (हिन्दी)*/
+        const languageDropdown = document.getElementById('language-dropdown');
+
+        Object.keys(translations).forEach(lang => {
+            const option = document.createElement('option');
+            option.value = lang;
+            option.textContent = lang;
+            languageDropdown.appendChild(option);
+        });
+
+        languageDropdown.addEventListener('change', function () {
+            const selectedLanguage = this.value;
+            const greeting = document.getElementById('greeting');
+            const personalDescription = document.getElementById('personal-description');
+
+            greeting.textContent = translations[selectedLanguage].greeting;
+            personalDescription.textContent = translations[selectedLanguage].personalDescription;
+        });
+
+        function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    const headerHeight = document.querySelector('header').offsetHeight;
+    
+    window.scrollTo({
+        top: section.offsetTop - headerHeight,
+        behavior: 'smooth'
+    });
+}
+
+    </script>
+</body>
+</html>
